@@ -1,0 +1,64 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+  }
+  
+  .grid-item {
+    padding: 10px;
+  }
+  
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  input[type="text"],  select {
+    width: 100%;
+    height: 30px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+  
+  .input-price {
+    width: 50%;
+  }
+  
+  input[type="file"] {
+    width: 100%;
+    height: 30px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+  
+  button {
+    width: 100%;
+    height: 30px;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 10px;
+  }
+  
+  .button-save {
+    background-color: #007BFF; /* Bleu */
+    width: 15%;
+    margin-right: 10px; /* Espacement entre les boutons */
+
+  }
+  
+  .button-cancel {
+    background-color: #f44336; /* Rouge */
+    width: 15%;
+    
+  }
+  
+
+
+  

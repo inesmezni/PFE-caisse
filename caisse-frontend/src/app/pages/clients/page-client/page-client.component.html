@@ -1,0 +1,54 @@
+
+<div class="col">
+    <div class="row m-3">
+        <div class="col-md-8 p-0">
+            <h2>Liste des clients</h2>
+        </div>
+        <div class="col-md-4 d-flex justify-content-end">
+            <app-button-action (clickEvent)="ajouterClient()"></app-button-action>
+        </div>
+    </div>
+    
+    <div class="card row m-3">
+        <div class="table-responsive">
+            <table class="table">
+              <thead class="thead-light">
+                <tr>
+                  <th scope="col">Id</th>
+                  <th scope="col">Nom</th>
+                  <th scope="col">Prenom</th>
+                  <th scope="col">Adresse</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">NumTel</th>
+                  <th scope="col">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor ="let client of listClients" >
+                  <th scope="row">{{client.id}}</th>
+                  <td>{{client.nom}}</td>
+                  <td>{{client.prenom}}</td>
+                  <td>{{client.adresse}}</td>
+                  <td>{{client.mail}}</td>
+                  <td>{{client.numTel}}</td>
+
+                  
+                  <td>
+                    <a routerLink="../{{client.id}}/modifierClient">
+                        <button type="button" class="btn btn-primary">
+                          <i class="fas fa-pencil-alt"></i>Modifier
+                        </button></a>
+
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          
+    </div>
+
+    <router-outlet></router-outlet>
+</div>
+
+
+

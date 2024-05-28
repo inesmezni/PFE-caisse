@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+
+  backend:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    image: backend
+    volumes:
+      - ./:/src
+    ports:
+      - "8081:8081"
+    environment:
+      - TZ=Africa/Tunis
+    networks:
+      - relay-net
+
+  db:
+    image: mysql:8.0.33
+    ports:
+      - "3307:3306"
+    environment:
+      MYSQL_DATABASE: caisse-enregistreuse
+      MYSQL_ALLOW_EMPTY_PASSWORD: 1
+      MYSQL_ROOT_PASSWORD:
+    networks:
+      - relay-net
+
+networks:
+    relay-net:
+      name: "pfe-relay-net"
+      external: true

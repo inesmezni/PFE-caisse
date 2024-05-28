@@ -1,0 +1,14 @@
+<!-- app.component.html -->
+<nav *ngIf="role === 'caissier'">
+  <ul>
+    <li><a routerLink="/dashboard-caissier">Dashboard Caissier</a></li>
+  </ul>
+</nav>
+
+<nav *ngIf="role === 'gerant'">
+  <ul>
+    <li><a routerLink="/dashboard-gerant">Dashboard Gérant</a></li>
+  </ul>
+</nav>
+
+<router-outlet></router-outlet>

@@ -1,0 +1,47 @@
+
+
+<div class="col-md-22">
+    <div class="col-md-12 mb-3 mt-3">
+    <div class="col-md-12">
+        <h3>Nouvel Entreprise</h3>
+    </div>
+    <div class="col-md-12">
+        <form>
+        <form >
+            <div class="grid-container">
+              <div class="grid-item">
+                <label for="nom">Nom entreprise</label><br>
+                <input type="text" id="nom" name="nom" [(ngModel)]="entreprise.nom" required>
+              </div>
+              <div class="grid-item">
+                <label for="description">Designation</label><br>
+                <input type="text" id="description" name="description" [(ngModel)]="entreprise.description" required>
+              </div>
+              <div class="grid-item">
+                <label for="adresseEntreprise">Adresse Entreprise</label><br>
+                <input type="text" id="adresseEntreprise" name="designation" [(ngModel)]="entreprise.adresseEntreprise" required>
+              </div>
+              <div class="grid-item">
+                <label for="codefiscal">Code Fiscal</label><br>
+                <input type="text" id="codefiscal" name="codefiscal" [(ngModel)]="entreprise.codefiscal" required>
+              </div>
+              <div class="grid-item">
+                <label for="email">Email</label><br>
+                <input type="text" id="email" name="codefiscal" [(ngModel)]="entreprise.email" required>
+              </div>
+              <div class="grid-item">
+                <label for="numtel">Num tel</label><br>
+                <input type="text" id="numtel" name="numtel" [(ngModel)]="entreprise.numtel" required>
+              </div>
+              <div class="grid-item">
+                <label for="siteweb">Site web</label><br>
+                <input type="text" id="siteweb" name="siteweb" [(ngModel)]="entreprise.siteweb" required>
+              </div>
+              
+            </div>
+            <div class="grid-container">
+              <div class="grid-item button-container"> <!-- Utilisez cette div pour aligner les boutons -->
+                <button type="submit" name="submit" class="button-save" (click)="enregistrerEntreprise()" >Enregistrer</button>
+                <button type="reset" name="reset" class="button-cancel" (click)="cancel()">Annuler</button>
+              </div>
+            </div>

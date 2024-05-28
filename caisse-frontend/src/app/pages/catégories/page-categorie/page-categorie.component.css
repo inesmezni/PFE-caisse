@@ -1,0 +1,10 @@
+/* Style pour le message d'erreur */
+.alert-danger {
+    color: #721c24; /* Couleur du texte */
+    background-color: #f8d7da; /* Couleur de fond */
+    border-color: #f5c6cb; /* Couleur de la bordure */
+    padding: 0.75rem 1.25rem; /* Espacement interne */
+    margin-top: 1rem; /* Marge en haut */
+    border-radius: 0.25rem; /* Bord arrondi */
+  }
+  

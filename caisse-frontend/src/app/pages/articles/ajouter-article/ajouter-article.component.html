@@ -1,0 +1,48 @@
+<div class="col-md-22">
+  <div class="col-md-12">
+      <h3>Nouvel article</h3>
+  </div>
+  <div class="col-md-12">
+      <form >
+          <div class="grid-container">
+            <div class="grid-item">
+              <label for="codearticle">Code Article:</label><br>
+              <input type="text" id="codearticle" name="codearticle" [(ngModel)]="article.codeArticle" required>
+            </div>
+            <div class="grid-item">
+              <label for="designation">Designation</label><br>
+              <input type="text" id="designation" name="designation" [(ngModel)]="article.designation" required>
+            </div>
+            <div class="grid-item">
+              <label for="prixunitaireht">Prix HT:</label><br>
+              <input type="text" id="prixunitaireht" name="prixunitaireht" [(ngModel)]="article.prixUnitaireHt" required>
+            </div>
+            <div class="grid-item">
+              <label for="prixUnitaireTtc">Prix TTC:</label><br>
+              <input type="text" id="prixUnitaireTtc" name="prixunitairettc" [(ngModel)]="article.prixUnitaireTtc" required>
+            </div>
+            <div class="grid-item">
+              <label for="tauxTva">Taux TVA:</label><br>
+              <input type="text" id="tauxTva" name="tauxtva" [(ngModel)]="article.tauxTva" required>
+            </div>
+            <div class="grid-item">
+              <label for="category">Catégorie:</label><br>
+              <select id="category" name="idcategory" [(ngModel)]="article.idCategory" required>
+                <option *ngFor="let cat of Category" [value]="cat.id">
+                  {{ cat.designation }}
+                </option>
+              </select>
+            </div>
+            
+          </div>
+          <div class="grid-container">
+            <div class="grid-item button-container">
+              <button type="submit" class="button-save" (click)="enregistrerArticle()" >Enregistrer</button>
+              <button type="reset" class="button-cancel" (click)="cancel()">Annuler</button>
+            </div>
+          </div>
+      </form>
+  </div>
+</div>
+
+

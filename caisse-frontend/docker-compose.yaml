@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+
+  frontend:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    image: frontend
+    restart: always
+    volumes:
+      - ./:/src
+    ports:
+      - "4200:4200"
+    environment:
+      - TZ=Africa/Tunis
+    networks:
+      - relay-net
+
+networks:
+    relay-net:
+      name: "pfe-relay-net"
+      external: true
