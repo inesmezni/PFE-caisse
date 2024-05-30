@@ -3,6 +3,7 @@ package com.caisse.controller;
 import com.caisse.dto.CategoryDto;
 import com.caisse.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -23,13 +24,14 @@ public class CategoryController {
     @PostMapping( "/Save")
     public CategoryDto save(@RequestBody CategoryDto dto) {
         return categoryService.save(dto);
-  }
-
-    @PutMapping("/put/{idCategory}")
-    public CategoryDto updateCategory(@PathVariable("idCategory") Integer idCategory,
-                                      @RequestBody CategoryDto updatedCategoryDto) {
-        return categoryService.updateCategory(idCategory) ;
     }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<CategoryDto> updateCategory(@PathVariable Integer id, @RequestBody CategoryDto categoryDto) {
+        CategoryDto updatedCategory = categoryService.updateCategory(id, categoryDto);
+        return ResponseEntity.ok(updatedCategory);
+    }
+
 
     @GetMapping(value = "/categories/{idCategory}")
     public CategoryDto findById(@PathVariable("idCategory") Integer idCategory) {

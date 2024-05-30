@@ -86,6 +86,27 @@ public class ArticleServiceImpl implements ArticleService {
 
 
 
+    @Override
+    public ArticleDto updateArticle(Integer id, ArticleDto dto) {
+        if (id == null || dto == null) {
+            log.error("Article ID or DTO is null");
+            throw new InvalidEntityException("L'article n'est pas valide", ErrorCodes.ARTICLE_NOT_VALID, List.of("ID or DTO is null"));
+        }
+
+        Article existingArticle = articleRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException(
+                        "Aucun article avec l'ID = " + id + " n'a ete trouve dans la BDD",
+                        ErrorCodes.ARTICLE_NOT_FOUND));
+
+        ((Article) existingArticle).setCodeArticle(dto.getCodeArticle());
+        existingArticle.setDesignation(dto.getDesignation());
+        existingArticle.setPrixUnitaireHt(dto.getPrixUnitaireHt());
+        existingArticle.setTauxTva(dto.getTauxTva());
+
+        // Set other properties you want to update
+
+        return ArticleDto.fromEntity(articleRepository.save(existingArticle));
+    }
 
     @Override
     public List<ArticleDto> findAllArticleByIdCategory(Integer idCategory) {

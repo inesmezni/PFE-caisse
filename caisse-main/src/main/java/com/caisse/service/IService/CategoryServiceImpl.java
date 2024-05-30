@@ -2,6 +2,7 @@ package com.caisse.service.IService;
 
 import com.caisse.dto.CategoryDto;
 import com.caisse.entity.Article;
+import com.caisse.entity.Category;
 import com.caisse.exception.EntityNotFoundException;
 import com.caisse.exception.ErrorCodes;
 import com.caisse.exception.InvalidEntityException;
@@ -26,6 +27,7 @@ public class CategoryServiceImpl implements CategoryService {
     private final CategoryRepository categoryRepository;
     private final ArticleRepository articleRepository;
 
+
     @Autowired
     public CategoryServiceImpl(CategoryRepository categoryRepository, ArticleRepository articleRepository) {
         this.categoryRepository = categoryRepository;
@@ -44,11 +46,34 @@ public class CategoryServiceImpl implements CategoryService {
         );
     }
 
-    @Override
-    public  CategoryDto updateCategory(Integer id){
-        return null;
-    }
 
+    @Override
+    public CategoryDto updateCategory(Integer id, CategoryDto dto) {
+        if (id == null || dto == null) {
+            log.error("Category ID or DTO is null");
+            throw new InvalidEntityException("La category n'est pas valide", ErrorCodes.CATEGORY_NOT_VALID, List.of("ID or DTO is null"));
+        }
+
+        List<String> errors = CategoryValidator.validate(dto);
+        if (!errors.isEmpty()) {
+            log.error("Category is not valid {}", dto);
+            throw new InvalidEntityException("La category n'est pas valide", ErrorCodes.CATEGORY_NOT_VALID, errors);
+        }
+
+        Category existingCategory = categoryRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException(
+                        "Aucune category avec l'ID = " + id + " n' ete trouve dans la BDD",
+                        ErrorCodes.CATEGORY_NOT_FOUND)
+                );
+
+        existingCategory.setCode(dto.getCode());
+        existingCategory.setDesignation(dto.getDesignation());
+        existingCategory.setCreationDate(dto.getCreationDate());
+
+        return CategoryDto.fromEntity(
+                categoryRepository.save(existingCategory)
+        );
+    }
     @Override
     public CategoryDto findById(Integer id) {
         if (id == null) {

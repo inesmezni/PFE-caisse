@@ -25,13 +25,6 @@ public class StockUp extends AbstractEntity {
 
 
 
-
-
-   // @ManyToOne
-
- /*   @JoinColumn(name = "idfournisseur")
-    private Fournisseur fournisseur;*/
-
     @OneToMany(mappedBy = "stockUp")
     private List<LigneStockUp> lignestockUp;
 

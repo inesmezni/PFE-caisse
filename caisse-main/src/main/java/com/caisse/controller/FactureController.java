@@ -18,12 +18,12 @@ public class FactureController {
         this.factureService = factureService;
     }
 
-    @PostMapping
+    @PostMapping("add")
     public FactureDto saveFacture(@RequestBody FactureDto dto) {
         return factureService.save(dto);
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/get-by-id/{id}")
     public FactureDto getFactureById(@PathVariable Integer id) {
         return factureService.findById(id);
     }
@@ -33,7 +33,7 @@ public class FactureController {
         return factureService.findByCode(code);
     }
 
-    @GetMapping
+    @GetMapping("/get-all")
     public List<FactureDto> getAllFactures() {
         return factureService.findAll();
     }

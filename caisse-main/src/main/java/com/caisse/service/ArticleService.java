@@ -14,7 +14,10 @@ public interface ArticleService {
 
     List<ArticleDto> findAll();
 
-  //  List<LigneFactureDto> findHistoriqueVentes(Integer idArticle);
+    ArticleDto updateArticle(Integer id, ArticleDto dto);
+
+
+    //  List<LigneFactureDto> findHistoriqueVentes(Integer idArticle);
 
 
  //   List<LigneStockUpDto> findHistoriqueStockUp(Integer idArticle);

@@ -56,6 +56,13 @@ public class ArticleController {
         return new ResponseEntity<>(articles, HttpStatus.OK);
     }
 
+    @PutMapping("/put/{id}")
+    public ResponseEntity<ArticleDto> updateArticle(@PathVariable Integer id, @RequestBody ArticleDto articleDto) {
+        ArticleDto updatedArticle = articleService.updateArticle(id, articleDto);
+        return ResponseEntity.ok(updatedArticle);
+    }
+
+
     @DeleteMapping("delete/{id}")
     public ResponseEntity<Void> deleteArticle(@PathVariable("id") Integer id) {
         if (id == null) {

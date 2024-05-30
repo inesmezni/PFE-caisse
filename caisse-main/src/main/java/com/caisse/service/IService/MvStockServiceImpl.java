@@ -33,7 +33,7 @@ public class MvStockServiceImpl implements MvStockService {
     public BigDecimal stockReelArticle(Integer idArticle) {
         if(idArticle==null){
             log.warn("id Article is null");
-        return BigDecimal.valueOf(-1);
+            return BigDecimal.valueOf(-1);
 
         }
         articleService.findById(idArticle);
@@ -48,14 +48,14 @@ public class MvStockServiceImpl implements MvStockService {
 
     @Override
     public MvStockDto entreeStock(MvStockDto dto) {
-      List<String> errors= MvtStkValidator.validate(dto);
-      if (!errors.isEmpty()){
-          log.error("Article is not valid{}",dto);
-          throw new InvalidEntityException("l'entree du stock n'est pas valid", ErrorCodes.MVT_STK_NOT_VALID,errors);
-      }
-dto.setQuantite(BigDecimal.valueOf(Math.abs(dto.getQuantite().doubleValue())));
-      dto.setTypeMvt(TypeMvtStk.ENTREE);
-      return MvStockDto.fromEntity(repo.save(MvStockDto.toEntity(dto)));
+        List<String> errors= MvtStkValidator.validate(dto);
+        if (!errors.isEmpty()){
+            log.error("Article is not valid{}",dto);
+            throw new InvalidEntityException("l'entree du stock n'est pas valid", ErrorCodes.MVT_STK_NOT_VALID,errors);
+        }
+        dto.setQuantite(BigDecimal.valueOf(Math.abs(dto.getQuantite().doubleValue())));
+        dto.setTypeMvt(TypeMvtStk.ENTREE);
+        return MvStockDto.fromEntity(repo.save(MvStockDto.toEntity(dto)));
     }
 
     @Override

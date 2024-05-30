@@ -3,8 +3,9 @@ package com.caisse.entity;
 
 import java.math.BigDecimal;
 import java.util.List;
+import jakarta.persistence.*;
 
-import javax.persistence.*;
+import javax.persistence.Table;
 
 import lombok.*;
 
@@ -32,11 +33,6 @@ public class Article extends AbstractEntity {
     @Column(name = "prixunitairettc")
     private BigDecimal prixUnitaireTtc;
 
-    @Lob
-    @Column(name = "photo")
-    private byte[] photo;
-
-
 
     @ManyToOne
     @JoinColumn(name = "idcategory")
@@ -47,7 +43,7 @@ public class Article extends AbstractEntity {
 
 
 
-   @OneToMany(mappedBy = "article")
+    @OneToMany(mappedBy = "article")
     private List<LigneStockUp> ligneStockUpss;
 
     @OneToMany(mappedBy = "article")
