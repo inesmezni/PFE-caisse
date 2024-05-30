@@ -1,0 +1,29 @@
+
+<div class="col-md-22">
+    <div class="col-md-12">
+        <h3>Modifier Catégorie</h3>
+    </div>
+    <div class="col-md-12">
+        <form >
+            <div class="grid-container">
+              <div class="grid-item">
+                <label for="code">Code Categorie:</label><br>
+                <input type="text" id="code" name="code" [(ngModel)]=" category.code" required>
+              </div>
+              <div class="grid-item">
+                <label for="designation">Designation</label><br>
+                <input type="text" id="designation" name="designation" [(ngModel)]=" category.designation" required>
+              </div>
+              
+              </div>
+            
+            <div class="grid-container">
+              <div class="grid-item button-container"> <!-- Utilisez cette div pour aligner les boutons -->
+                <button type="submit" name="submit" class="button-save"  >Modifier</button>
+                <button type="reset" name="reset" class="button-cancel" (click)="cancel()">Annuler</button>
+              </div>
+            </div>
+          </form>
+    </div>
+</div>
+

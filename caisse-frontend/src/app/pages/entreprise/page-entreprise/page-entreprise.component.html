@@ -1,0 +1,54 @@
+<div class="col">
+    <div class="row m-3">
+        <div class="col-md-8 p-0">
+            <h2>Les coordonnées de l'entreprise</h2>
+        </div>
+        <div class="col-md-4 d-flex justify-content-end">
+            <app-button-action (clickEvent)="nouvelEntreprise()"></app-button-action>
+        </div>
+    </div>
+    <div class="card row m-3">
+        <div class="table-responsive">
+            <table class="table">
+              <thead class="thead-light">
+                <tr>
+                  <th scope="col">Id</th>
+                  <th scope="col">Nom</th>
+                  <th scope="col">Description</th>
+                  <th scope="col">Adresse Entreprise </th>
+                  <th scope="col">Code fiscal</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">Numero telephone </th>
+                  <th scope="col">Site web</th>
+                  <th scope="col">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr >
+                  <th scope="row"></th>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td>
+                   
+                    <button type="button" class="btn btn-link">
+                      <i class="fas fa-pencil-alt"></i>
+                    </button>
+                    
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          
+    </div>
+  
+    <router-outlet></router-outlet>
+  </div>
+  
+  
+  

@@ -1,0 +1,15 @@
+/* Assurez-vous que la rangée est configurée pour utiliser Flexbox */
+.row {
+    display: flex;
+    justify-content: center; /* Centre les éléments horizontalement */
+    align-items: center; /* Centre les éléments verticalement */
+    width: 100%; /* Utilise toute la largeur disponible */
+}
+
+
+
+
+/* Style pour l'input group pour assurer qu'il prend l'espace nécessaire sans débordement */
+.input-group {
+    width: auto; /* Prend juste l'espace nécessaire */
+}

@@ -1,0 +1,80 @@
+
+<div class="col">
+    <div class="row m-3">
+        <div class="col-md-8 p-0">
+            <h2>Mouvement du stock</h2>
+        </div>
+        <div class="col-md-4 d-flex justify-content-end">
+     <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#stockModal">
+   + Nouveau
+  </button>
+        </div>
+    </div>
+    
+    <div class="card row m-3">
+        <table class="table">
+            <thead class="thead-light"> 
+              <tr>
+                <th scope="col">id</th>
+                <th scope="col">User</th>
+                <th scope="col">Date-Mvt</th>
+                <th scope="col">Quantité</th>
+                <th scope="col">Type-Mvt</th>
+                <th scope="col">Article</th>
+                
+              </tr>
+            </thead>
+            <tbody>
+              <tr >
+                <th scope="row"></th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+               
+              </tr>
+            </tbody>
+          </table>
+        
+          
+          
+    </div>
+
+    <router-outlet></router-outlet>
+</div>
+
+
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="stockModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modifier Stock</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="mb-3">
+                <label for="quantite" class="form-label">Quantite</label>
+                <input type="" class="form-control" id="quantite" aria-describedby="quantite">
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Type de mouvement</label>
+               <select class="form-select" aria-label="Default select example">
+           <option selected>Selectionner le type de mouvement</option>
+           <option value="1">ENTREE</option>
+            <option value="2">SORTIE</option>
+           
+          </select>
+              </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" >Close</button>
+          <button type="button" class="btn btn-primary"  >Valider</button>
+        </div>
+      </div>
+    </div>
+  </div>
