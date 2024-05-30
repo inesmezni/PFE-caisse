@@ -19,6 +19,7 @@ import { ModifierClientComponent } from './pages/clients/modifier-client/modifie
 import { MvmStockComponent } from './pages/mvm-stock/mvm-stock.component';
 import { AjouterFactureComponent } from './ajouter-facture/ajouter-facture.component';
 import { ListFactureComponent } from './list-facture/list-facture.component';
+import { PromotionComponent } from './pages/promotion/promotion.component';
 
 
 const routes: Routes = [
@@ -98,6 +99,10 @@ const routes: Routes = [
       path:'mvmStock',
       component:MvmStockComponent
     },
+    {
+      path:'promotion',
+      component:PromotionComponent
+    }
 
   ]
 

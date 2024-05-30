@@ -31,6 +31,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { MvmStockComponent } from './pages/mvm-stock/mvm-stock.component';
 import { ListFactureComponent } from './list-facture/list-facture.component';
 import { AjouterFactureComponent } from './ajouter-facture/ajouter-facture.component';
+import { PromotionComponent } from './pages/promotion/promotion.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { AjouterFactureComponent } from './ajouter-facture/ajouter-facture.compo
     DashboardComponent,
     MvmStockComponent,
     ListFactureComponent,
-    AjouterFactureComponent
+    AjouterFactureComponent,
+    PromotionComponent
   
   ],
   imports: [

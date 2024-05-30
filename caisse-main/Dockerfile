@@ -1,4 +1,4 @@
-FROM maven:3.8.2-jdk-11 as lets-dev
+FROM maven:3.8.2-jdk-17 as lets-dev
 
 WORKDIR /src
 

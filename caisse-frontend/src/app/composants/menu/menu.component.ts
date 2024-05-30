@@ -31,8 +31,16 @@ export class MenuComponent implements OnInit {
       name: 'Clients',
       icon: 'fa-solid fa-user',
       url: 'listClient'
-    }
+    },
 
+
+
+    {
+      number: '5',
+      name: 'promotion',
+      icon: 'fa-solid fa-envelope',
+      url: 'promotion'
+    }
 
   ]
   

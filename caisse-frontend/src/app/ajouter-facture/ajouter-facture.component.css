@@ -1,0 +1,29 @@
+.invoice-form .form-group {
+    margin-bottom: 15px; /* Space between input fields */
+  }
+  
+  .custom-border {
+    border: 1px solid #ccc; /* Custom border style */
+  }
+  
+  .button-save, .button-cancel {
+    margin: 5px; /* Space between buttons */
+  }
+  
+  .button-save {
+    background-color: #007BFF; /* Blue */
+  }
+  
+  .button-cancel {
+    background-color: #f44336; /* Red */
+  }
+  
+  /* Additional styles to ensure correct button width */
+  .button-container button {
+    width: auto;
+  }
+  
+  .d-flex .button-save {
+    margin-right: 10px; /* Espacement entre les boutons */
+  }
+  
