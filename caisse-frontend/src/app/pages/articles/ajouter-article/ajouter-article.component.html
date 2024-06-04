@@ -15,7 +15,7 @@
             </div>
             <div class="grid-item">
               <label for="prixunitaireht">Prix HT:</label><br>
-              <input type="text" id="prixunitaireht" name="prixunitaireht" [(ngModel)]="article.prixUnitaireHt" required>
+              <input type="text" id="prixunitaireht" name="prixunitaireht"  (input)="calculerTTC()" [(ngModel)]="article.prixUnitaireHt" required>
             </div>
             <div class="grid-item">
               <label for="prixUnitaireTtc">Prix TTC:</label><br>
@@ -23,7 +23,7 @@
             </div>
             <div class="grid-item">
               <label for="tauxTva">Taux TVA:</label><br>
-              <input type="text" id="tauxTva" name="tauxtva" [(ngModel)]="article.tauxTva" required>
+              <input type="text" id="tauxTva" name="tauxtva" (input)="calculerTTC()" [(ngModel)]="article.tauxTva" required>
             </div>
             <div class="grid-item">
               <label for="category">Catégorie:</label><br>
@@ -37,7 +37,7 @@
           </div>
           <div class="grid-container">
             <div class="grid-item button-container">
-              <button type="submit" class="button-save" (click)="enregistrerArticle()" >Enregistrer</button>
+              <button  class="button-save"  type="button" (click)="enregistrerArticle()" >Enregistrer</button>
               <button type="reset" class="button-cancel" (click)="cancel()">Annuler</button>
             </div>
           </div>

@@ -9,4 +9,9 @@ export class AppComponent {
   title = 'caisse-frontend';
   role: string = 'caissier ,gerant';
  
+
+ constructor ( ) {} 
+
 }
+
+

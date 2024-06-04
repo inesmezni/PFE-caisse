@@ -2,7 +2,7 @@ package com.caisse.entity;
 
 import java.time.Instant;
 import java.util.List;
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.*;
 
 @Data

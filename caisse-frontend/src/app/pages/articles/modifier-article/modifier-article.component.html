@@ -1,0 +1,52 @@
+<div class="col-md-22">
+    <div class="col-md-12">
+        <h3>Modifier article</h3>
+    </div>
+    <div class="col-md-12">
+        <form [formGroup]="editArticleForm">
+            <div class="grid-container">
+              <div class="grid-item">
+                <label for="codearticle">Code Article:</label><br>
+                <input type="text" id="codearticle" name="codearticle" formControlName="codeArticle" required>
+              </div>
+              <div class="grid-item">
+                <label for="designation">Designation</label><br>
+                <input type="text" id="designation" name="designation" formControlName="designation" required>
+              </div>
+              <div class="grid-item">
+                <label for="prixunitaireht">Prix HT:</label><br>
+                <input type="text" id="prixunitaireht" name="prixunitaireht" formControlName="prixUnitaireHt" required>
+              </div>
+              <div class="grid-item">
+                <label for="prixUnitaireTtc">Prix TTC:</label><br>
+                <input type="text" id="prixUnitaireTtc" name="prixunitairettc" formControlName="prixUnitaireTtc" required>
+              </div>
+              <div class="grid-item">
+                <label for="tauxTva">Taux TVA:</label><br>
+                <input type="text" id="tauxTva" name="tauxtva" formControlName="tauxTva" required>
+              </div>
+              <div class="grid-item">
+                <label for="category">Catégorie:</label><br>
+                <select id="category" name="idcategory" formControlName="idCategory" required>
+                  <option *ngFor="let cat of Category" [value]="cat.id">
+                    {{ cat.designation }}
+                  </option>
+                </select>
+              </div>
+              
+            </div>
+            <div class="grid-container">
+              <div class="grid-item button-container">
+                <button  class="button-save"  type="submit" name="submit" (click)="modifierArticle()" >Modifier</button>
+                <button type="reset" class="button-cancel" (click)="cancel()">Annuler</button>
+              </div>
+            </div>
+        </form>
+    </div>
+  </div>
+  
+
+
+
+  
+  

@@ -1,1 +1,41 @@
-<p>modifier-client works!</p>
+<div class="col-md-22">
+    <div class="col-md-12 mb-3 mt-3">
+    <div class="col-md-12">
+        <h3>Modifier client</h3>
+    </div>
+    <div class="col-md-12">
+        <form>
+        <form >
+            <div class="grid-container">
+              <div class="grid-item">
+                <label for="nom">Nom</label><br>
+                <input type="text" id="nom" name="nom" formControlName="nom" required>
+              </div>
+              <div class="grid-item">
+                <label for="prenom">Prenom</label><br>
+                <input type="text" id="prenom" name="prenom" formControlName="prenom" required>
+              </div>
+              
+              <div class="grid-item">
+                <label for="adresse">Adresse</label><br>
+                <input type="text" id="adresse" name="adresse" formControlName="adresse" required>
+              </div>
+              <div class="grid-item">
+                <label for="mail">Email</label><br>
+                <input type="text" id="mail" name="mail" formControlName="mail" required>
+              </div>
+              <div class="grid-item">
+                <label for="numTel">Numero telephone</label><br>
+                <input type="text" id="numTel" name="numTel" formControlName="numTel" required>
+              </div>
+            </div>
+  
+             
+  
+            <div class="grid-container">
+              <div class="grid-item button-container"> <!-- Utilisez cette div pour aligner les boutons -->
+                <button type="submit" name="submit" class="button-save" (click)="modifierClient()" >Enregistrer</button>
+                <button type="reset" name="reset" class="button-cancel" (click)="cancel()">Annuler</button>
+              </div>
+            </div>
+

@@ -15,7 +15,7 @@ public class FactureDto {
 
     private String code;
 
-    //  private Instant dateVente;
+     private Instant dateVente;
 
     private String commentaire;
 

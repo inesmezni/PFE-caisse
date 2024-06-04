@@ -17,8 +17,8 @@
               <th scope="col">Code article</th>
               <th scope="col">Designation</th>
               <th scope="col">Prix HT</th>
-              <th scope="col">Prix TTC</th>
               <th scope="col">Taux TVA</th>
+              <th scope="col">Prix TTC</th>
               <th scope="col">Catégorie</th>
               <th scope="col">action</th>
       
@@ -30,14 +30,14 @@
               <td>{{article.codeArticle}}</td>
               <td>{{article.designation}}</td>
               <td>{{article.prixUnitaireHt }}</td>
-              <td>{{article.prixUnitaireTtc }}</td>
               <td>{{article.tauxTva }}</td>
-              <td>{{article.category.designation }}</td>
+              <td>{{article.prixUnitaireTtc }}</td>
+             <td>{{article.category.designation }}</td>
               <td>
              
               <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalDeleteArticle" (click)="selectArticlePourSupprimer(article.id)"><i class="fas fa-trash-alt" ></i>Supprimer&nbsp;</button>
           
-              <a class="btn btn-primary" href="#" role="button"> <i class="fas fa-pencil-alt"></i>&nbsp;Modifier</a>
+              <a class="btn btn-primary" href="modifierArticle/{{article.id}}" role="button"> <i class="fas fa-pencil-alt"></i>&nbsp;Modifier</a>
               <a routerLink="/mvmStock"><button type="button" class="btn btn-secondary">Stock</button></a>
             </td>
              

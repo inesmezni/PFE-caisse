@@ -10,7 +10,7 @@ public interface CategoryService {
 
     CategoryDto findById(Integer id);
     
-    CategoryDto updateCategory(Integer id);
+    CategoryDto updateCategory(Integer id, CategoryDto categoryDto);
 
     CategoryDto findByCode(String code);
 

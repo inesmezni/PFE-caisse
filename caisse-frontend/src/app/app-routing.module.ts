@@ -20,6 +20,7 @@ import { MvmStockComponent } from './pages/mvm-stock/mvm-stock.component';
 import { AjouterFactureComponent } from './ajouter-facture/ajouter-facture.component';
 import { ListFactureComponent } from './list-facture/list-facture.component';
 import { PromotionComponent } from './pages/promotion/promotion.component';
+import { ModifierArticleComponent } from './pages/articles/modifier-article/modifier-article.component';
 
 
 const routes: Routes = [
@@ -102,6 +103,10 @@ const routes: Routes = [
     {
       path:'promotion',
       component:PromotionComponent
+    },
+    {
+      path:'modifierArticle/:id',
+      component:ModifierArticleComponent
     }
 
   ]

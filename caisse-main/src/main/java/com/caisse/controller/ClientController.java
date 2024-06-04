@@ -43,6 +43,7 @@ public class ClientController {
         return clientService.retrieveAllClients();
     }
 
+ 
     /*  public ResponseEntity<List<Client>> retrieveAllClients() {
         List<Client> clients = clientService.retrieveAllClients();
         return ResponseEntity.ok(clients);

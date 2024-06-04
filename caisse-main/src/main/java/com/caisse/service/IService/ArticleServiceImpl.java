@@ -7,22 +7,25 @@ import com.caisse.exception.InvalidEntityException;
 import com.caisse.repository.ArticleRepository;
 import com.caisse.repository.LigneFactureRepository;
 import com.caisse.service.ArticleService;
-import java.util.List;
-import java.util.stream.Collectors;
-
 import com.caisse.validator.ArticleValidator;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
+import com.caisse.dto.CategoryDto;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
+import com.caisse.entity.Article;
 
 @Service
 @Slf4j
-
 public class ArticleServiceImpl implements ArticleService {
 
     private ArticleRepository articleRepository;
     private LigneFactureRepository factureRepository;
+
     @Autowired
     public ArticleServiceImpl(
             ArticleRepository articleRepository,
@@ -55,7 +58,7 @@ public class ArticleServiceImpl implements ArticleService {
 
         return articleRepository.findById(id).map(ArticleDto::fromEntity).orElseThrow(() ->
                 new EntityNotFoundException(
-                        "Aucun article avec l'ID = " + id + " n' ete trouve dans la BDD",
+                        "Aucun article avec l'ID = " + id + " n' a été trouvé dans la BDD",
                         ErrorCodes.ARTICLE_NOT_FOUND)
         );
     }
@@ -71,7 +74,7 @@ public class ArticleServiceImpl implements ArticleService {
                 .map(ArticleDto::fromEntity)
                 .orElseThrow(() ->
                         new EntityNotFoundException(
-                                "Aucun article avec le CODE = " + codeArticle + " n' ete trouve dans la BDD",
+                                "Aucun article avec le CODE = " + codeArticle + " n' a été trouvé dans la BDD",
                                 ErrorCodes.ARTICLE_NOT_FOUND)
                 );
     }
@@ -83,9 +86,6 @@ public class ArticleServiceImpl implements ArticleService {
                 .collect(Collectors.toList());
     }
 
-
-
-
     @Override
     public ArticleDto updateArticle(Integer id, ArticleDto dto) {
         if (id == null || dto == null) {
@@ -95,15 +95,15 @@ public class ArticleServiceImpl implements ArticleService {
 
         Article existingArticle = articleRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException(
-                        "Aucun article avec l'ID = " + id + " n'a ete trouve dans la BDD",
+                        "Aucun article avec l'ID = " + id + " n'a été trouvé dans la BDD",
                         ErrorCodes.ARTICLE_NOT_FOUND));
 
-        ((Article) existingArticle).setCodeArticle(dto.getCodeArticle());
+        existingArticle.setCodeArticle(dto.getCodeArticle());
         existingArticle.setDesignation(dto.getDesignation());
         existingArticle.setPrixUnitaireHt(dto.getPrixUnitaireHt());
         existingArticle.setTauxTva(dto.getTauxTva());
-
-        // Set other properties you want to update
+        existingArticle.setPrixUnitaireTtc(dto.getPrixUnitaireTtc());
+        existingArticle.setCategory(CategoryDto.toEntity(dto.getCategory()));
 
         return ArticleDto.fromEntity(articleRepository.save(existingArticle));
     }
@@ -114,7 +114,6 @@ public class ArticleServiceImpl implements ArticleService {
                 .map(ArticleDto::fromEntity)
                 .collect(Collectors.toList());
     }
-
 
     @Override
     public void delete(Integer id) {

@@ -13,7 +13,7 @@ import { CategoryService } from '../../../services/category/category.service';
 export class AjouterArticleComponent implements OnInit {
 
   article: Article = {
-    idCategory: '', // Assurez-vous d'initialiser correctement l'ID de la catégorie
+    idCategory: 0, // Assurez-vous d'initialiser correctement l'ID de la catégorie
     prixUnitaireHt: '',
     prixUnitaireTtc: '',
     tauxTva: '',
@@ -44,14 +44,35 @@ export class AjouterArticleComponent implements OnInit {
   }
 
   enregistrerArticle() {
-    this.articleService.enregistrerArticle(this.article).subscribe(
+    const articleToSend = {
+      ...this.article,
+      category: { id: this.article.idCategory } // Ajouter l'objet category avec l'id de la catégorie
+    };
+
+    this.articleService.enregistrerArticle(articleToSend).subscribe(
       response => {
-        console.log('Article ajoutée avec succès!', response);
+        console.log('Article ajouté avec succès!', response);
+        this.router.navigate(['/articles']);
       },
       error => {
         console.error('Erreur lors de l\'ajout de l\'article :', error);
       }
     );
-    this.router.navigate(['/articles']);
   }
-}
+
+
+  
+  
+
+  calculerTTC(): void {
+    if (this.article.prixUnitaireHt && this.article.tauxTva) {
+      const prixUnitaireHt = parseFloat(this.article.prixUnitaireHt);
+      const tauxTva = parseFloat(this.article.tauxTva);
+  
+      if (!isNaN(prixUnitaireHt) && !isNaN(tauxTva)) {
+        // prixHT + (prixHT * (tauxTVA / 100))
+        this.article.prixUnitaireTtc = (prixUnitaireHt + (prixUnitaireHt * (tauxTva / 100))).toFixed(2);
+      }
+    }
+  }
+}  

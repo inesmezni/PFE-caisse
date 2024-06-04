@@ -1,10 +1,15 @@
 package com.caisse.entity;
 
 import java.util.List;
-import jakarta.persistence.*;
+import javax.persistence.*;
 
 
 import lombok.*;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 @Data
 @Builder

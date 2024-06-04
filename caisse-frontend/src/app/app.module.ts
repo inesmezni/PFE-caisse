@@ -32,6 +32,9 @@ import { MvmStockComponent } from './pages/mvm-stock/mvm-stock.component';
 import { ListFactureComponent } from './list-facture/list-facture.component';
 import { AjouterFactureComponent } from './ajouter-facture/ajouter-facture.component';
 import { PromotionComponent } from './pages/promotion/promotion.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ModifierArticleComponent } from './pages/articles/modifier-article/modifier-article.component';
+
 
 @NgModule({
   declarations: [
@@ -59,15 +62,17 @@ import { PromotionComponent } from './pages/promotion/promotion.component';
     MvmStockComponent,
     ListFactureComponent,
     AjouterFactureComponent,
-    PromotionComponent
-  
+    PromotionComponent,
+    ModifierArticleComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    KeycloakAngularModule
+    KeycloakAngularModule,
+    ReactiveFormsModule,
+
   
   ],
   providers: [
